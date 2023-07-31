@@ -26,8 +26,8 @@ inputs = {
 
   name                 = "ibrain"
   vpc_cidr             = "10.0"
-  public_subnets_cidr  = ["10.0.1.0/24"]
-  private_subnets_cidr = ["10.0.10.0/24"]
+  public_subnets_cidr  = ["10.0.2.0/24"]
+  private_subnets_cidr = ["10.0.20.0/24"]
   availability_zones   = ["${local.aws_region}a", "${local.aws_region}b", "${local.aws_region}c"]
 
 }

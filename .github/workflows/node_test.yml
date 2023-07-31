@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          path: ./infra_aws/cicd_code # Specify the relative path to the code
+          path: ./infra_aws/cicd_demo # Specify the relative path to the code
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -23,10 +23,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd ./infra_aws/cicd_code
+          cd ./infra_aws/cicd_demo
           npm ci
 
       - name: Run tests
         run: |
-          cd ./infra_aws/cicd_code
+          cd ./infra_aws/cicd_demo
           npm test

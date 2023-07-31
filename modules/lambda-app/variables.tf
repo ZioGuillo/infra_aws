@@ -12,6 +12,7 @@ variable "environment" {
 variable "routes_val" {
   type        = number
   description = "Number of API Routes"
+  default = 2
 }
 
 variable "allowed_dl_admins" {

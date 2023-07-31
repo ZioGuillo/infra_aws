@@ -20,7 +20,7 @@ jobs:
       - name: Install Terragrunt
         run: |
           # Replace the URL with the download URL for the latest Terragrunt version
-          curl -LO https://github.com/gruntwork-io/terragrunt/releases/download/vX.X.X/terragrunt_linux_amd64
+          curl -LO https://github.com/gruntwork-io/terragrunt/releases/download/v0.48.5/terragrunt_linux_amd64
           chmod +x terragrunt_linux_amd64
           sudo mv terragrunt_linux_amd64 /usr/local/bin/terragrunt
 
@@ -33,16 +33,16 @@ jobs:
 
       - name: Initialize Terragrunt
         run: |
-          cd terraform/deployment/${{ matrix.environment }}/us-west-2/applications/simple-vpc
+          cd terraform/deployments/${{ matrix.environment }}/us-west-2/applications/simple-vpc
           terragrunt init
 
       - name: Generate Terragrunt plan
         run: |
-          cd terraform/deployment/${{ matrix.environment }}/us-west-2/applications/simple-vpc
+          cd terraform/deployments/${{ matrix.environment }}/us-west-2/applications/simple-vpc
           terragrunt plan --out=tfplan
 
       - name: Save Terragrunt plan artifact
         uses: actions/upload-artifact@v2
         with:
           name: terragrunt-plan-${{ matrix.environment }}
-          path: terraform/deployment/${{ matrix.environment }}/us-west-2/applications/simple-vpc/tfplan
+          path: terraform/deployments/${{ matrix.environment }}/us-west-2/applications/simple-vpc/tfplan

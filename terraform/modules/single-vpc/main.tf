@@ -13,7 +13,7 @@ terraform {
 }
 
 provider "aws" {
-  profile = "zonered"
+  #profile = "zonered"
   region  = var.aws_region
 
   default_tags {

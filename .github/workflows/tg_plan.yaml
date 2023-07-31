@@ -33,16 +33,16 @@ jobs:
 
       - name: Initialize Terragrunt
         run: |
-          cd terraform/deployment/${{ matrix.environment }}/us-west-2/applications/simple-vpc
+          cd terraform/deployments/${{ matrix.environment }}/us-west-2/applications/simple-vpc
           terragrunt init
 
       - name: Generate Terragrunt plan
         run: |
-          cd terraform/deployment/${{ matrix.environment }}/us-west-2/applications/simple-vpc
+          cd terraform/deployments/${{ matrix.environment }}/us-west-2/applications/simple-vpc
           terragrunt plan --out=tfplan
 
       - name: Save Terragrunt plan artifact
         uses: actions/upload-artifact@v2
         with:
           name: terragrunt-plan-${{ matrix.environment }}
-          path: terraform/deployment/${{ matrix.environment }}/us-west-2/applications/simple-vpc/tfplan
+          path: terraform/deployments/${{ matrix.environment }}/us-west-2/applications/simple-vpc/tfplan

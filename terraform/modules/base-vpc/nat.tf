@@ -23,8 +23,8 @@ output "nat" {
 #############
 
 resource "aws_eip" "nat" {
-  vpc = true
 
+  domain = "vpc"
   tags = merge(local.default-tags, {
     Name = "${var.name}-${var.environment}-nat"
   })
